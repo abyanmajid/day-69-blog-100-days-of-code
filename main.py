@@ -19,7 +19,7 @@ ckeditor = CKEditor(app)
 Bootstrap(app)
 
 # CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL1', 'sqlite:///blog.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///blog.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -82,6 +82,7 @@ class Comment(db.Model):
     parent_post = relationship('BlogPost', back_populates='comments')
     comment_author = relationship('User', back_populates='comments')
 
+db.create_all()
 
 # GRAVATAR
 gravatar = Gravatar(app,
