@@ -83,6 +83,8 @@ class Comment(db.Model):
     comment_author = relationship('User', back_populates='comments')
 
 
+db.create_all()
+
 # GRAVATAR
 gravatar = Gravatar(app,
                     size=100,
