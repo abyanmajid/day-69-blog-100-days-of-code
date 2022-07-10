@@ -93,8 +93,6 @@ gravatar = Gravatar(app,
                     use_ssl=False,
                     base_url=None)
 
-db.create_all()
-
 # ROUTES
 @app.route('/')
 def get_all_posts():
